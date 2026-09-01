@@ -1,0 +1,6 @@
+# Normalize text to LF in the repository. Git for Windows sets core.autocrlf=true,
+# which would otherwise commit CRLF churn from this machine.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary

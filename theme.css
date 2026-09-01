@@ -1,0 +1,1160 @@
+/* ==========================================================================
+   Bedo — Albedo brand theme for Obsidian
+   Palette source: assets/Albedo-Color-Palette.md (from assets/color pallette.png)
+
+   Light mode  = Light Grey / Space Grey surfaces, Albedo Purple accent
+   Dark mode   = Space Gradient surfaces, Indigo 200 accent, Chartreuse highlights
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Raw brand palette (available in both modes for snippets/callouts)
+   -------------------------------------------------------------------------- */
+body {
+  /* Core brand */
+  --bedo-purple: #412db5;
+  --bedo-indigo: #2d2178;
+  --bedo-razzmatazz: #e5197f;
+  --bedo-chartreuse: #e9ff97;
+  --bedo-light-grey: #f4f4f4;
+
+  /* Space gradient (dark) */
+  --bedo-space-light: #6b7398;
+  --bedo-space-mid: #35394c;
+  --bedo-space-dark: #0c0e1b;
+
+  /* Indigo tints */
+  --bedo-indigo-300: #604dc6;
+  --bedo-indigo-200: #8173cc;
+  --bedo-indigo-100: #aba2d4;
+
+  /* Greys */
+  --bedo-space-grey: #d9d4e2;
+  --bedo-space-grey-light: #e7e4ed;
+
+  /* Chartreuse tints */
+  --bedo-chartreuse-light: #f7ffd8;
+  --bedo-chartreuse-xlight: #fcfff0;
+
+  /* Accent hue is shared by both modes: Purple and every Indigo tint sit on
+     the same hue (249deg). Only saturation/lightness change per mode. */
+  --accent-h: 249;
+}
+
+/* --------------------------------------------------------------------------
+   2. Semantic colors
+   The brand sheet has no red / orange / green / cyan. Those below are DERIVED
+   by hue-rotating Razzmatazz and Chartreuse so callouts, tags and graph nodes
+   stay in family. Purple, pink and yellow are true brand values.
+   -------------------------------------------------------------------------- */
+body.theme-light {
+  --color-purple: #412db5;
+  --color-purple-rgb: 65, 45, 181;
+  --color-blue: #604dc6;
+  --color-blue-rgb: 96, 77, 198;
+  --color-pink: #e5197f;
+  --color-pink-rgb: 229, 25, 127;
+  --color-red: #d81639; /* derived from Razzmatazz */
+  --color-red-rgb: 216, 22, 57;
+  --color-orange: #d9631a; /* derived from Razzmatazz */
+  --color-orange-rgb: 217, 99, 26;
+  --color-yellow: #a8bd3f; /* Chartreuse, darkened for light-mode legibility */
+  --color-yellow-rgb: 168, 189, 63;
+  --color-green: #63a83f; /* derived from Chartreuse */
+  --color-green-rgb: 99, 168, 63;
+  --color-cyan: #3f7fa8; /* derived from Space Light */
+  --color-cyan-rgb: 63, 127, 168;
+}
+
+body.theme-dark {
+  --color-purple: #8173cc;
+  --color-purple-rgb: 129, 115, 204;
+  --color-blue: #aba2d4;
+  --color-blue-rgb: 171, 162, 212;
+  --color-pink: #e5197f;
+  --color-pink-rgb: 229, 25, 127;
+  --color-red: #f0446a; /* derived from Razzmatazz */
+  --color-red-rgb: 240, 68, 106;
+  --color-orange: #f0904a; /* derived from Razzmatazz */
+  --color-orange-rgb: 240, 144, 74;
+  --color-yellow: #e9ff97; /* Chartreuse */
+  --color-yellow-rgb: 233, 255, 151;
+  --color-green: #b6e878; /* derived from Chartreuse */
+  --color-green-rgb: 182, 232, 120;
+  --color-cyan: #8fa6d4; /* derived from Space Light */
+  --color-cyan-rgb: 143, 166, 212;
+}
+
+/* --------------------------------------------------------------------------
+   3. LIGHT MODE
+   -------------------------------------------------------------------------- */
+body.theme-light {
+  --accent-s: 60%;
+  --accent-l: 44%; /* = Albedo Purple #412DB5 */
+
+  /* Base scale — most default components derive from these */
+  --color-base-00: #ffffff;
+  --color-base-05: #fcfcfd;
+  --color-base-10: #f4f4f4;
+  --color-base-20: #efeef3;
+  --color-base-25: #e7e4ed;
+  --color-base-30: #dfdce8;
+  --color-base-35: #d9d4e2;
+  --color-base-40: #cfc9dc;
+  --color-base-50: #9a96ae;
+  --color-base-60: #6e6a85;
+  --color-base-70: #3a3750;
+  --color-base-100: #14152a;
+
+  /* Surfaces */
+  --background-primary: #ffffff;
+  --background-primary-alt: #f4f4f4;
+  --background-secondary: #f4f4f4;
+  --background-secondary-alt: #e7e4ed;
+  --background-modifier-border: #d9d4e2;
+  --background-modifier-border-hover: #aba2d4;
+  --background-modifier-border-focus: #604dc6;
+  --background-modifier-hover: rgba(65, 45, 181, 0.07);
+  --background-modifier-active-hover: rgba(65, 45, 181, 0.13);
+  --background-modifier-success: rgba(99, 168, 63, 0.2);
+  --background-modifier-error: rgba(229, 25, 127, 0.15);
+  --background-modifier-error-hover: rgba(229, 25, 127, 0.25);
+
+  /* Text */
+  --text-normal: #14152a;
+  --text-muted: #55596e;
+  --text-faint: #8a8fa6;
+  --text-accent: #412db5;
+  --text-accent-hover: #604dc6;
+  --text-on-accent: #ffffff;
+  --text-selection: rgba(171, 162, 212, 0.45);
+  --text-highlight-bg: rgba(233, 255, 151, 0.85);
+  --text-error: #d81639;
+  --text-success: #63a83f;
+
+  /* Interactive */
+  --interactive-normal: #f4f4f4;
+  --interactive-hover: #e7e4ed;
+  --interactive-accent: #412db5;
+  --interactive-accent-hover: #604dc6;
+
+  /* Chrome */
+  --titlebar-background: #e7e4ed;
+  --titlebar-background-focused: #d9d4e2;
+  --ribbon-background: #e7e4ed;
+  --status-bar-background: #f4f4f4;
+  --divider-color: #d9d4e2;
+  --scrollbar-thumb-bg: rgba(65, 45, 181, 0.2);
+  --scrollbar-active-thumb-bg: rgba(65, 45, 181, 0.4);
+
+  /* Editor — code backgrounds live in section 10 */
+  --blockquote-border-color: #aba2d4;
+  --hr-color: #d9d4e2;
+  --tag-color: #412db5;
+  --tag-background: rgba(65, 45, 181, 0.1);
+  --tag-background-hover: rgba(65, 45, 181, 0.18);
+  --bold-color: #e5197f;
+  --italic-color: #604dc6;
+  --embed-border-left: 2px solid #aba2d4;
+
+  /* Graph */
+  --graph-line: #d9d4e2;
+  --graph-node: #55596e;
+  --graph-node-tag: #e5197f;
+  --graph-node-attachment: #a8bd3f;
+  --graph-node-unresolved: #aba2d4;
+  --graph-node-focused: #412db5;
+}
+
+/* --------------------------------------------------------------------------
+   4. DARK MODE — Space Gradient
+   -------------------------------------------------------------------------- */
+body.theme-dark {
+  --accent-s: 47%;
+  --accent-l: 63%; /* = Indigo 200 #8173CC */
+
+  /* Base scale */
+  --color-base-00: #0c0e1b;
+  --color-base-05: #10121f;
+  --color-base-10: #14172a;
+  --color-base-20: #1b1f33;
+  --color-base-25: #21253a;
+  --color-base-30: #272c44;
+  --color-base-35: #2e334e;
+  --color-base-40: #35394c;
+  --color-base-50: #6b7398;
+  --color-base-60: #8e95af;
+  --color-base-70: #c3c0d2;
+  --color-base-100: #e7e4ed;
+
+  /* Surfaces */
+  --background-primary: #0c0e1b;
+  --background-primary-alt: #14172a;
+  --background-secondary: #080a14;
+  --background-secondary-alt: #05060c;
+  --background-modifier-border: #21253a;
+  --background-modifier-border-hover: #35394c;
+  --background-modifier-border-focus: #604dc6;
+  --background-modifier-hover: rgba(107, 115, 152, 0.18);
+  --background-modifier-active-hover: rgba(129, 115, 204, 0.24);
+  --background-modifier-success: rgba(182, 232, 120, 0.2);
+  --background-modifier-error: rgba(229, 25, 127, 0.22);
+  --background-modifier-error-hover: rgba(229, 25, 127, 0.35);
+
+  /* Text */
+  --text-normal: #e7e4ed;
+  --text-muted: #a6acc4;
+  --text-faint: #6b7398;
+  --text-accent: #8173cc;
+  --text-accent-hover: #aba2d4;
+  --text-on-accent: #ffffff;
+  --text-selection: rgba(97, 77, 198, 0.35);
+  --text-highlight-bg: rgba(233, 255, 151, 0.28);
+  --text-error: #f0446a;
+  --text-success: #b6e878;
+
+  /* Interactive — buttons fill with Albedo Purple so white label text holds
+     contrast; links/text use the lighter Indigo 200 instead. */
+  --interactive-normal: #14172a;
+  --interactive-hover: #21253a;
+  --interactive-accent: #412db5;
+  --interactive-accent-hover: #604dc6;
+
+  /* Chrome */
+  --titlebar-background: #05060c;
+  --titlebar-background-focused: #0c0e1b;
+  --titlebar-text-color: #a6acc4;
+  --ribbon-background: #05060c;
+  --status-bar-background: #080a14;
+  --divider-color: #21253a;
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: rgba(107, 115, 152, 0.3);
+  --scrollbar-active-thumb-bg: rgba(129, 115, 204, 0.55);
+
+  /* Editor — code backgrounds live in section 10 */
+  --code-normal: #d9d4e2;
+  --blockquote-border-color: #604dc6;
+  --hr-color: #21253a;
+  --tag-color: #e9ff97;
+  --tag-background: rgba(233, 255, 151, 0.12);
+  --tag-background-hover: rgba(233, 255, 151, 0.22);
+  --bold-color: #f04b9c; /* Razzmatazz, lightened for contrast on Space Dark */
+  --italic-color: #aba2d4;
+  --embed-border-left: 2px solid #604dc6;
+
+  /* Graph */
+  --graph-line: #21253a;
+  --graph-node: #a6acc4;
+  --graph-node-tag: #e5197f;
+  --graph-node-attachment: #e9ff97;
+  --graph-node-unresolved: #35394c;
+  --graph-node-focused: #8173cc;
+}
+
+/* --------------------------------------------------------------------------
+   5. Headings — brand hierarchy, shared structure
+   -------------------------------------------------------------------------- */
+body.theme-light {
+  --h1-color: #2d2178;
+  --h2-color: #412db5;
+  --h3-color: #604dc6;
+  --h4-color: var(--text-normal);
+  --h5-color: var(--text-muted);
+  --h6-color: var(--text-muted);
+  --inline-title-color: #2d2178;
+}
+
+body.theme-dark {
+  --h1-color: #e9ff97;
+  --h2-color: #aba2d4;
+  --h3-color: #8173cc;
+  --h4-color: var(--text-normal);
+  --h5-color: var(--text-muted);
+  --h6-color: var(--text-muted);
+  --inline-title-color: #e9ff97;
+}
+
+body {
+  --h1-weight: 700;
+  --h2-weight: 650;
+  --h3-weight: 600;
+  --h1-line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   6. Checkboxes — Chartreuse check on brand-purple fill
+   -------------------------------------------------------------------------- */
+body {
+  --checkbox-radius: 30%; /* Things-style rounded square */
+}
+
+body.theme-light {
+  --checkbox-color: #412db5;
+  --checkbox-color-hover: #604dc6;
+  --checkbox-border-color: #aba2d4;
+  --checkbox-border-color-hover: #604dc6;
+  --checkbox-marker-color: #ffffff;
+  --checklist-done-color: var(--text-faint);
+}
+
+body.theme-dark {
+  --checkbox-color: #604dc6;
+  --checkbox-color-hover: #8173cc;
+  --checkbox-border-color: #35394c;
+  --checkbox-border-color-hover: #8173cc;
+  --checkbox-marker-color: #e9ff97;
+  --checklist-done-color: var(--text-faint);
+}
+
+/* --------------------------------------------------------------------------
+   7. Sidebar / tabs — accent the active item instead of a heavy fill
+   -------------------------------------------------------------------------- */
+body {
+  --nav-item-weight-active: 600;
+}
+
+body.theme-light {
+  --nav-item-color-active: #412db5;
+  --nav-item-background-active: rgba(65, 45, 181, 0.09);
+  --nav-indentation-guide-color: rgba(65, 45, 181, 0.12);
+  --tab-text-color-focused-active: #412db5;
+  --tab-outline-color: #d9d4e2;
+}
+
+body.theme-dark {
+  --nav-item-color-active: #e9ff97;
+  --nav-item-background-active: rgba(129, 115, 204, 0.18);
+  --nav-indentation-guide-color: rgba(107, 115, 152, 0.25);
+  --tab-text-color-focused-active: #e9ff97;
+  --tab-outline-color: #21253a;
+}
+
+/* --------------------------------------------------------------------------
+   8. Active line highlight — subtle, stays in the brand hue
+   -------------------------------------------------------------------------- */
+body.theme-light:not(.bedo-no-active-line) .cm-active.cm-line,
+body.theme-light:not(.bedo-no-active-line) .HyperMD-header.cm-active {
+  background-color: rgba(65, 45, 181, 0.04);
+}
+
+body.theme-dark:not(.bedo-no-active-line) .cm-active.cm-line,
+body.theme-dark:not(.bedo-no-active-line) .HyperMD-header.cm-active {
+  background-color: rgba(107, 115, 152, 0.1);
+}
+
+/* ==========================================================================
+   THINGS-INSPIRED ADDITIONS
+
+   Highlights ported from the Things theme by @colineckert
+   (github.com/colineckert/obsidian-things) and recolored to the Albedo
+   palette. The alternate checkbox states originate from Minimal by @kepano.
+
+   Things gates most of these behind Style Settings toggles (body.fancy-code,
+   body.active-line, body.h2-no-underline, ...). Bedo ships no Style Settings
+   block, so they are ON unconditionally. Delete a section to switch it off.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   9. Typography, radius and layout scale
+   -------------------------------------------------------------------------- */
+body {
+  --font-text-theme:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Ubuntu,
+    sans-serif;
+  --font-editor-theme:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Ubuntu,
+    sans-serif;
+  --font-interface-theme:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Ubuntu,
+    sans-serif;
+  --font-monospace-theme:
+    'JetBrains Mono', 'Fira Code', Cascadia Code, Consolas, 'Roboto Mono',
+    monospace;
+
+  --h1-size: 1.7rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.2rem;
+  --h4-size: 1.1rem;
+  --h5-size: 1rem;
+  --h6-size: 0.9rem;
+
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 10px;
+  --radius-xl: 16px;
+
+  --line-width: 40rem;
+  --line-height: 1.5;
+  --max-width: 90%;
+  --nested-padding: 1.1em;
+  --folding-offset: 10px;
+  --icon-muted: 0.5;
+
+  --link-decoration: underline;
+  --link-external-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   10. Variables the ported rules need
+   -------------------------------------------------------------------------- */
+body.theme-light {
+  /* Split inline code from block code, as Things does */
+  --code-background: #ecebf2;
+  --bedo-code-block-background: #f2f1f7;
+  --bedo-code-gutter-background: #e7e4ed;
+
+  /* Dimmed markdown syntax characters (**, _, >) */
+  --text-formatted: #a5a1b8;
+
+  /* Italic blockquote body text */
+  --bedo-quote-color: #2d2178;
+
+  /* Highlight: Chartreuse wash with a solid Chartreuse underline */
+  --highlight-mix-blend-mode: darken;
+  --bedo-highlight-fill: rgba(233, 255, 151, 0.55);
+  --bedo-highlight-underline: #e9ff97;
+
+  /* Indigo-tinted shadows instead of neutral black */
+  --shadow-s:
+    0 1px 2px rgba(45, 33, 120, 0.05), 0 3.4px 6.7px rgba(45, 33, 120, 0.06),
+    0 15px 30px rgba(45, 33, 120, 0.08);
+  --shadow-l:
+    0 1.8px 7.3px rgba(45, 33, 120, 0.08), 0 6.3px 24.7px rgba(45, 33, 120, 0.12),
+    0 30px 90px rgba(45, 33, 120, 0.2);
+}
+
+body.theme-dark {
+  --code-background: #1b1f33;
+  --bedo-code-block-background: #14172a;
+  --bedo-code-gutter-background: #1b1f33;
+
+  --text-formatted: #6b7398;
+
+  --bedo-quote-color: #aba2d4;
+
+  --highlight-mix-blend-mode: lighten;
+  --bedo-highlight-fill: rgba(233, 255, 151, 0.22);
+  --bedo-highlight-underline: #e9ff97;
+
+  --shadow-s:
+    0 1px 2px rgba(0, 0, 0, 0.12), 0 3.4px 6.7px rgba(0, 0, 0, 0.18),
+    0 15px 30px rgba(0, 0, 0, 0.3);
+  --shadow-l:
+    0 1.8px 7.3px rgba(0, 0, 0, 0.18), 0 6.3px 24.7px rgba(0, 0, 0, 0.28),
+    0 30px 90px rgba(0, 0, 0, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   11. Heading underlines and small caps
+   -------------------------------------------------------------------------- */
+body:not(.bedo-no-h2-underline) .markdown-preview-view h2,
+body:not(.bedo-no-h2-underline) .markdown-rendered h2 {
+  border-bottom: 2px solid var(--background-modifier-border);
+  width: 100%;
+  padding-bottom: 2px;
+  margin-bottom: 8px !important;
+}
+body:not(.bedo-no-h2-underline) .HyperMD-header.HyperMD-header-2.cm-line {
+  border-bottom: 2px solid var(--background-modifier-border);
+  padding-bottom: 2px;
+}
+
+/* Opt-in: H1 gets a rule too */
+body.bedo-h1-underline .markdown-preview-view h1,
+body.bedo-h1-underline .markdown-rendered h1 {
+  border-bottom: 2px solid var(--background-modifier-border);
+  width: 100%;
+  padding-bottom: 2px;
+  margin-bottom: 8px !important;
+}
+body.bedo-h1-underline .HyperMD-header.HyperMD-header-1.cm-line {
+  border-bottom: 2px solid var(--background-modifier-border);
+  padding-bottom: 2px;
+}
+
+/* Opt-in: the rule takes the heading's own color instead of the border grey */
+body.bedo-heading-underline-color.bedo-h1-underline .markdown-rendered h1,
+body.bedo-heading-underline-color.bedo-h1-underline
+  .HyperMD-header.HyperMD-header-1.cm-line {
+  border-bottom-color: var(--h1-color);
+}
+body.bedo-heading-underline-color:not(.bedo-no-h2-underline)
+  .markdown-preview-view
+  h2,
+body.bedo-heading-underline-color:not(.bedo-no-h2-underline)
+  .markdown-rendered
+  h2,
+body.bedo-heading-underline-color:not(.bedo-no-h2-underline)
+  .HyperMD-header.HyperMD-header-2.cm-line {
+  border-bottom-color: var(--h2-color);
+}
+
+/* Opt-in: small caps */
+body.bedo-h1-small-caps h1,
+body.bedo-h1-small-caps .HyperMD-header.HyperMD-header-1.cm-line {
+  font-variant-caps: small-caps;
+}
+body.bedo-h2-small-caps h2,
+body.bedo-h2-small-caps .HyperMD-header.HyperMD-header-2.cm-line {
+  font-variant-caps: small-caps;
+}
+
+/* --------------------------------------------------------------------------
+   12. Breadcrumb: hidden until you hover the pane header
+   -------------------------------------------------------------------------- */
+body:not(.bedo-no-hover-breadcrumb)
+  .view-header
+  .view-header-title-container {
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+body:not(.bedo-no-hover-breadcrumb)
+  .view-header:hover
+  .view-header-title-container {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   13. Italic, colored blockquotes + dimmed markdown syntax
+   -------------------------------------------------------------------------- */
+body:not(.bedo-no-colored-emphasis) .markdown-preview-view blockquote,
+body:not(.bedo-no-colored-emphasis) .markdown-rendered blockquote,
+body:not(.bedo-no-colored-emphasis) span.cm-quote.cm-quote-1 {
+  font-style: italic;
+  color: var(--bedo-quote-color);
+}
+body.bedo-no-colored-emphasis {
+  --bold-color: inherit;
+  --italic-color: inherit;
+}
+
+.cm-formatting-strong,
+.cm-formatting-em,
+.cm-formatting.cm-formatting-quote {
+  color: var(--text-formatted) !important;
+  font-weight: var(--normal-weight);
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   14. Fancy highlight — wash plus a solid underline stripe
+   -------------------------------------------------------------------------- */
+body:not(.bedo-no-fancy-highlight) span.cm-highlight,
+body:not(.bedo-no-fancy-highlight) .markdown-preview-view mark,
+body:not(.bedo-no-fancy-highlight) .markdown-rendered mark,
+body:not(.bedo-no-fancy-highlight) span.search-result-file-matched-text {
+  background-color: transparent;
+  background-image: linear-gradient(
+    0deg,
+    var(--bedo-highlight-underline) 0%,
+    var(--bedo-highlight-underline) 2px,
+    var(--bedo-highlight-fill) 2px,
+    var(--bedo-highlight-fill) 100%
+  );
+}
+mark strong,
+mark em {
+  color: var(--text-normal);
+}
+
+/* --------------------------------------------------------------------------
+   15. Active line — accent bar in the gutter
+   -------------------------------------------------------------------------- */
+body:not(.bedo-no-active-line)
+  .cm-active:not(.HyperMD-header, .HyperMD-codeblock)::before,
+body:not(.bedo-no-active-line) .cm-active.HyperMD-quote::before {
+  content: '';
+  height: 100%;
+  position: absolute;
+  left: -1.125em;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 10px 0 0 10px;
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   16. Image cards
+   -------------------------------------------------------------------------- */
+body:not(.bedo-no-image-cards) .markdown-rendered img,
+body:not(.bedo-no-image-cards) .markdown-source-view.mod-cm6 .cm-content img {
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-s);
+}
+
+/* --------------------------------------------------------------------------
+   17. Inline code vs. code block backgrounds
+   -------------------------------------------------------------------------- */
+.markdown-rendered code:not(pre code),
+.markdown-preview-view code:not(pre code),
+.cm-s-obsidian span.cm-inline-code {
+  background-color: var(--code-background);
+}
+.markdown-preview-view pre:not(.frontmatter),
+.cm-s-obsidian div.HyperMD-codeblock-bg {
+  background-color: var(--bedo-code-block-background);
+}
+
+/* Line numbers in the live-preview code block gutter */
+body:not(.bedo-no-code-numbers) .HyperMD-codeblock-begin {
+  counter-reset: codeblock-line-numbers;
+}
+body:not(.bedo-no-code-numbers)
+  .HyperMD-codeblock:not(
+    .HyperMD-codeblock-begin,
+    .HyperMD-codeblock-end
+  )::before {
+  counter-increment: codeblock-line-numbers;
+  content: counter(codeblock-line-numbers);
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 1.7em;
+  padding-right: 1.4em;
+  font-size: 0.75em;
+  line-height: 2;
+  text-align: right;
+  color: var(--text-faint);
+  background-color: var(--bedo-code-gutter-background);
+}
+body:not(.bedo-no-code-numbers)
+  .HyperMD-codeblock.HyperMD-codeblock-bg.cm-line:not(
+    .HyperMD-codeblock-begin,
+    .HyperMD-codeblock-end
+  ) {
+  padding-left: 2.8em;
+}
+
+/* Keep the copy button pinned while code scrolls sideways */
+.markdown-reading-view .el-pre {
+  position: relative;
+}
+.markdown-reading-view .el-pre pre {
+  position: static;
+  overflow-x: auto;
+  white-space: pre;
+}
+.markdown-reading-view .el-pre .copy-code-button {
+  position: absolute;
+}
+
+/* --------------------------------------------------------------------------
+   18. Quick switcher / suggestion selection uses the accent in dark mode
+   -------------------------------------------------------------------------- */
+body.theme-dark .modal-container .suggestion-item.is-selected {
+  background: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   19. Alternate task states  (- [/] - [>] - [?] - [!] ... )
+   Curated subset of Things/Minimal. Every color resolves through the
+   brand-mapped --color-* set in section 2.
+
+     [/] in progress    [>] forwarded     [<] scheduled    [?] question
+     [!] important      [*] star          [-] cancelled    [i] info
+     [b] bookmark       [I] idea          [u] trending up  [d] trending down
+     [l] location
+   -------------------------------------------------------------------------- */
+input[data-task='>']:checked,
+input[data-task='<']:checked,
+input[data-task='!']:checked,
+input[data-task='*']:checked,
+input[data-task='-']:checked,
+input[data-task='b']:checked,
+input[data-task='I']:checked,
+input[data-task='u']:checked,
+input[data-task='d']:checked,
+input[data-task='l']:checked,
+li[data-task='>'] > input:checked,
+li[data-task='>'] > p > input:checked,
+li[data-task='<'] > input:checked,
+li[data-task='<'] > p > input:checked,
+li[data-task='!'] > input:checked,
+li[data-task='!'] > p > input:checked,
+li[data-task='*'] > input:checked,
+li[data-task='*'] > p > input:checked,
+li[data-task='-'] > input:checked,
+li[data-task='-'] > p > input:checked,
+li[data-task='b'] > input:checked,
+li[data-task='b'] > p > input:checked,
+li[data-task='I'] > input:checked,
+li[data-task='I'] > p > input:checked,
+li[data-task='u'] > input:checked,
+li[data-task='u'] > p > input:checked,
+li[data-task='d'] > input:checked,
+li[data-task='d'] > p > input:checked,
+li[data-task='l'] > input:checked,
+li[data-task='l'] > p > input:checked {
+  --checkbox-marker-color: transparent;
+  border: none;
+  border-radius: 0;
+  background-image: none;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 50%;
+}
+
+/* [/] in progress — half-filled box */
+input[data-task='/']:checked,
+li[data-task='/'] > input:checked,
+li[data-task='/'] > p > input:checked {
+  background-image: none;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+input[data-task='/']:checked::after,
+li[data-task='/'] > input:checked::after,
+li[data-task='/'] > p > input:checked::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(50% - 0.5px);
+  height: 100%;
+  background-color: var(--color-accent);
+  -webkit-mask-image: none;
+}
+
+/* [>] forwarded */
+input[data-task='>']:checked,
+li[data-task='>'] > input:checked,
+li[data-task='>'] > p > input:checked {
+  color: var(--text-faint);
+  transform: rotate(90deg);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath d='M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z' /%3E%3C/svg%3E");
+}
+
+/* [<] scheduled */
+input[data-task='<']:checked,
+li[data-task='<'] > input:checked,
+li[data-task='<'] > p > input:checked {
+  color: var(--text-faint);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd' /%3E%3C/svg%3E");
+}
+
+/* [!] important */
+input[data-task='!']:checked,
+li[data-task='!'] > input:checked,
+li[data-task='!'] > p > input:checked {
+  color: var(--color-pink);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z' clip-rule='evenodd' /%3E%3C/svg%3E");
+}
+
+/* [*] star */
+input[data-task='*']:checked,
+li[data-task='*'] > input:checked,
+li[data-task='*'] > p > input:checked {
+  color: var(--color-yellow);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' /%3E%3C/svg%3E");
+}
+
+/* [-] cancelled */
+input[data-task='-']:checked,
+li[data-task='-'] > input:checked,
+li[data-task='-'] > p > input:checked {
+  color: var(--text-faint);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z' clip-rule='evenodd' /%3E%3C/svg%3E");
+}
+.markdown-preview-view ul li[data-task='-'].task-list-item.is-checked,
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='-'],
+li[data-task='-'].task-list-item.is-checked {
+  color: var(--text-faint);
+  text-decoration: line-through solid var(--text-faint) 1px;
+}
+
+/* [b] bookmark */
+input[data-task='b']:checked,
+li[data-task='b'] > input:checked,
+li[data-task='b'] > p > input:checked {
+  color: var(--color-purple);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath d='M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z' /%3E%3C/svg%3E");
+}
+
+/* [I] idea */
+input[data-task='I']:checked,
+li[data-task='I'] > input:checked,
+li[data-task='I'] > p > input:checked {
+  color: var(--color-yellow);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath d='M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z' /%3E%3C/svg%3E");
+}
+
+/* [u] trending up */
+input[data-task='u']:checked,
+li[data-task='u'] > input:checked,
+li[data-task='u'] > p > input:checked {
+  color: var(--color-green);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z' clip-rule='evenodd' /%3E%3C/svg%3E");
+}
+
+/* [d] trending down */
+input[data-task='d']:checked,
+li[data-task='d'] > input:checked,
+li[data-task='d'] > p > input:checked {
+  color: var(--color-red);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M12 13a1 1 0 100 2h5a1 1 0 001-1V9a1 1 0 10-2 0v2.586l-4.293-4.293a1 1 0 00-1.414 0L8 9.586 3.707 5.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0L11 9.414 14.586 13H12z' clip-rule='evenodd' /%3E%3C/svg%3E");
+}
+
+/* [l] location */
+input[data-task='l']:checked,
+li[data-task='l'] > input:checked,
+li[data-task='l'] > p > input:checked {
+  color: var(--color-pink);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z' clip-rule='evenodd' /%3E%3C/svg%3E");
+}
+
+/* [?] question — filled Chartreuse chip, dark glyph in dark mode */
+input[data-task='?']:checked,
+li[data-task='?'] > input:checked,
+li[data-task='?'] > p > input:checked {
+  --checkbox-marker-color: transparent;
+  background-color: var(--color-yellow);
+  border-color: var(--color-yellow);
+  background-position: 50% 50%;
+  background-size: 200% 90%;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="20" height="20" viewBox="0 0 16 16"%3E%3Cpath fill="white" fill-rule="evenodd" d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215c0 1.344-.665 2.288-1.79 2.973c-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712c1.03-.632 1.397-1.135 1.397-2.028c0-.979-.758-1.698-1.926-1.698c-1.009 0-1.71.529-1.938 1.402c-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09c0-.618-.473-1.092-1.095-1.092c-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14Z"%2F%3E%3C%2Fsvg%3E');
+}
+body.theme-dark input[data-task='?']:checked,
+body.theme-dark li[data-task='?'] > input:checked,
+body.theme-dark li[data-task='?'] > p > input:checked {
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="20" height="20" viewBox="0 0 16 16"%3E%3Cpath fill="%230C0E1B" fill-rule="evenodd" d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215c0 1.344-.665 2.288-1.79 2.973c-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712c1.03-.632 1.397-1.135 1.397-2.028c0-.979-.758-1.698-1.926-1.698c-1.009 0-1.71.529-1.938 1.402c-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09c0-.618-.473-1.092-1.095-1.092c-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14Z"%2F%3E%3C%2Fsvg%3E');
+}
+
+/* [i] info — filled Indigo chip */
+input[data-task='i']:checked,
+li[data-task='i'] > input:checked,
+li[data-task='i'] > p > input:checked {
+  --checkbox-marker-color: transparent;
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+  background-position: 50%;
+  background-size: 100%;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="20" height="20" viewBox="0 0 512 512"%3E%3Cpath fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="40" d="M196 220h64v172"%2F%3E%3Cpath fill="none" stroke="white" stroke-linecap="round" stroke-miterlimit="10" stroke-width="40" d="M187 396h138"%2F%3E%3Cpath fill="white" d="M256 160a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z"%2F%3E%3C%2Fsvg%3E');
+}
+body.theme-dark input[data-task='i']:checked,
+body.theme-dark li[data-task='i'] > input:checked,
+body.theme-dark li[data-task='i'] > p > input:checked {
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="20" height="20" viewBox="0 0 512 512"%3E%3Cpath fill="none" stroke="%230C0E1B" stroke-linecap="round" stroke-linejoin="round" stroke-width="40" d="M196 220h64v172"%2F%3E%3Cpath fill="none" stroke="%230C0E1B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="40" d="M187 396h138"%2F%3E%3Cpath fill="%230C0E1B" d="M256 160a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z"%2F%3E%3C%2Fsvg%3E');
+}
+
+/* Alternate states keep normal text color; only [x] and [-] fade out */
+li[data-task='>'].task-list-item.is-checked,
+li[data-task='<'].task-list-item.is-checked,
+li[data-task='!'].task-list-item.is-checked,
+li[data-task='*'].task-list-item.is-checked,
+li[data-task='/'].task-list-item.is-checked,
+li[data-task='?'].task-list-item.is-checked,
+li[data-task='i'].task-list-item.is-checked,
+li[data-task='b'].task-list-item.is-checked,
+li[data-task='I'].task-list-item.is-checked,
+li[data-task='u'].task-list-item.is-checked,
+li[data-task='d'].task-list-item.is-checked,
+li[data-task='l'].task-list-item.is-checked {
+  color: var(--text-normal);
+}
+
+/* Completed tasks: faint, no strikethrough */
+.markdown-preview-view ul > li.task-list-item.is-checked,
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] {
+  text-decoration: none;
+  color: var(--text-faint);
+}
+
+/* --------------------------------------------------------------------------
+   20. Progress bars — Razzmatazz at the low end, Purple at 100%
+   Opt-in via Style Settings. Matches Things' value-prefix buckets.
+   -------------------------------------------------------------------------- */
+body {
+  --progress-color-1: #e5197f;
+  --progress-color-2: #b13a9e;
+  --progress-color-3: #8173cc;
+  --progress-color-4: #a8bd3f;
+  --progress-color-5: #412db5;
+}
+
+body.bedo-progress-color progress[value^='1']::-webkit-progress-value,
+body.bedo-progress-color progress[value^='2']::-webkit-progress-value,
+body.bedo-progress-color progress[value^='3']::-webkit-progress-value {
+  background-color: var(--progress-color-1);
+}
+body.bedo-progress-color progress[value^='4']::-webkit-progress-value,
+body.bedo-progress-color progress[value^='5']::-webkit-progress-value {
+  background-color: var(--progress-color-2);
+}
+body.bedo-progress-color progress[value^='6']::-webkit-progress-value,
+body.bedo-progress-color progress[value^='7']::-webkit-progress-value {
+  background-color: var(--progress-color-3);
+}
+body.bedo-progress-color progress[value^='8']::-webkit-progress-value,
+body.bedo-progress-color progress[value^='9']::-webkit-progress-value {
+  background-color: var(--progress-color-4);
+}
+/* Single-digit values are percentages under 10, not 10-90 buckets */
+body.bedo-progress-color progress[value='0']::-webkit-progress-value,
+body.bedo-progress-color progress[value='2']::-webkit-progress-value,
+body.bedo-progress-color progress[value='3']::-webkit-progress-value,
+body.bedo-progress-color progress[value='4']::-webkit-progress-value,
+body.bedo-progress-color progress[value='5']::-webkit-progress-value,
+body.bedo-progress-color progress[value='6']::-webkit-progress-value,
+body.bedo-progress-color progress[value='7']::-webkit-progress-value,
+body.bedo-progress-color progress[value='8']::-webkit-progress-value,
+body.bedo-progress-color progress[value='9']::-webkit-progress-value {
+  background-color: var(--progress-color-1);
+}
+/* Complete */
+body.bedo-progress-color progress[value='1']::-webkit-progress-value,
+body.bedo-progress-color progress[value='100']::-webkit-progress-value {
+  background-color: var(--progress-color-5);
+}
+
+/* ==========================================================================
+   21. Style Settings
+   Read by the Style Settings plugin (obsidian-style-settings). Every feature
+   ported from Things is ON by default and turned off by a "Disable ..."
+   toggle, so the theme looks the same whether or not the plugin is enabled.
+   ========================================================================== */
+
+/* @settings
+
+name: Bedo
+id: bedo-theme
+settings:
+  - id: bedo-info
+    title: About
+    description: Albedo brand theme. Palette from assets/Albedo-Color-Palette.md. Feature set adapted from Things by @colineckert and Minimal by @kepano.
+    type: info-text
+    markdown: false
+
+  - id: bedo-features
+    title: Features
+    type: heading
+    level: 2
+    collapsed: true
+  - id: bedo-no-active-line
+    title: Disable active line highlight
+    description: Removes the background tint and accent bar on the line you are editing
+    type: class-toggle
+    default: false
+  - id: bedo-no-fancy-highlight
+    title: Disable fancy highlights
+    description: Reverts ==marks== to a flat background with no Chartreuse underline
+    type: class-toggle
+    default: false
+  - id: bedo-no-code-numbers
+    title: Disable code block line numbers
+    description: Removes the numbered gutter from code blocks in live preview
+    type: class-toggle
+    default: false
+  - id: bedo-no-image-cards
+    title: Disable image cards
+    description: Removes rounded corners and drop shadows from images in notes
+    type: class-toggle
+    default: false
+  - id: bedo-no-hover-breadcrumb
+    title: Always show the note breadcrumb
+    description: By default the pane header title only fades in on hover
+    type: class-toggle
+    default: false
+  - id: bedo-no-colored-emphasis
+    title: Disable colored emphasis
+    description: Returns bold, italics and blockquotes to the normal text color
+    type: class-toggle
+    default: false
+  - id: bedo-progress-color
+    title: Colored progress bars
+    description: Ramp progress bars from Razzmatazz to Purple by percent complete
+    type: class-toggle
+    default: false
+  - id: link-decoration
+    title: Underline internal links
+    type: variable-select
+    default: underline
+    options:
+      - underline
+      - none
+  - id: link-external-decoration
+    title: Underline external links
+    type: variable-select
+    default: underline
+    options:
+      - underline
+      - none
+
+  - id: bedo-headings
+    title: Headings
+    type: heading
+    level: 2
+    collapsed: true
+  - id: bedo-no-h2-underline
+    title: Disable H2 underline
+    type: class-toggle
+    default: false
+  - id: bedo-h1-underline
+    title: H1 underline
+    description: Add a rule under H1 as well
+    type: class-toggle
+    default: false
+  - id: bedo-heading-underline-color
+    title: Match underline color to heading color
+    description: Heading rules use the heading color instead of the border grey
+    type: class-toggle
+    default: false
+  - id: bedo-h1-small-caps
+    title: H1 small caps
+    type: class-toggle
+    default: false
+  - id: bedo-h2-small-caps
+    title: H2 small caps
+    type: class-toggle
+    default: false
+  - id: h1-color
+    title: H1 color
+    type: variable-themed-color
+    format: hex
+    default-light: '#2D2178'
+    default-dark: '#E9FF97'
+  - id: h2-color
+    title: H2 color
+    type: variable-themed-color
+    format: hex
+    default-light: '#412DB5'
+    default-dark: '#ABA2D4'
+  - id: h3-color
+    title: H3 color
+    type: variable-themed-color
+    format: hex
+    default-light: '#604DC6'
+    default-dark: '#8173CC'
+  - id: h1-size
+    title: H1 font size
+    description: Accepts any CSS font-size value
+    type: variable-text
+    default: 1.7rem
+  - id: h2-size
+    title: H2 font size
+    type: variable-text
+    default: 1.5rem
+  - id: h3-size
+    title: H3 font size
+    type: variable-text
+    default: 1.2rem
+
+  - id: bedo-typography
+    title: Text and emphasis
+    type: heading
+    level: 2
+    collapsed: true
+  - id: bold-color
+    title: Bold text color
+    type: variable-themed-color
+    format: hex
+    default-light: '#E5197F'
+    default-dark: '#F04B9C'
+  - id: italic-color
+    title: Italic text color
+    type: variable-themed-color
+    format: hex
+    default-light: '#604DC6'
+    default-dark: '#ABA2D4'
+  - id: bedo-quote-color
+    title: Blockquote text color
+    type: variable-themed-color
+    format: hex
+    default-light: '#2D2178'
+    default-dark: '#ABA2D4'
+  - id: text-formatted
+    title: Markdown syntax character color
+    description: Color of the ** and > characters in live preview
+    type: variable-themed-color
+    format: hex
+    default-light: '#A5A1B8'
+    default-dark: '#6B7398'
+  - id: bedo-highlight-fill
+    title: Highlight fill
+    type: variable-themed-color
+    format: rgb
+    opacity: true
+    default-light: 'rgba(233, 255, 151, 0.55)'
+    default-dark: 'rgba(233, 255, 151, 0.22)'
+  - id: bedo-highlight-underline
+    title: Highlight underline
+    type: variable-themed-color
+    format: hex
+    default-light: '#E9FF97'
+    default-dark: '#E9FF97'
+  - id: line-width
+    title: Readable line width
+    description: Accepts any CSS length
+    type: variable-text
+    default: 40rem
+
+  - id: bedo-code-tags
+    title: Code and tags
+    type: heading
+    level: 2
+    collapsed: true
+  - id: code-background
+    title: Inline code background
+    type: variable-themed-color
+    format: hex
+    default-light: '#ECEBF2'
+    default-dark: '#1B1F33'
+  - id: bedo-code-block-background
+    title: Code block background
+    type: variable-themed-color
+    format: hex
+    default-light: '#F2F1F7'
+    default-dark: '#14172A'
+  - id: bedo-code-gutter-background
+    title: Code block line number background
+    type: variable-themed-color
+    format: hex
+    default-light: '#E7E4ED'
+    default-dark: '#1B1F33'
+  - id: tag-color
+    title: Tag text color
+    type: variable-themed-color
+    format: hex
+    default-light: '#412DB5'
+    default-dark: '#E9FF97'
+  - id: tag-background
+    title: Tag background
+    type: variable-themed-color
+    format: rgb
+    opacity: true
+    default-light: 'rgba(65, 45, 181, 0.1)'
+    default-dark: 'rgba(233, 255, 151, 0.12)'
+
+  - id: bedo-progress
+    title: Progress bar colors
+    type: heading
+    level: 2
+    collapsed: true
+  - id: progress-color-1
+    title: Progress 1-39%
+    type: variable-color
+    format: hex
+    default: '#E5197F'
+  - id: progress-color-2
+    title: Progress 40-59%
+    type: variable-color
+    format: hex
+    default: '#B13A9E'
+  - id: progress-color-3
+    title: Progress 60-79%
+    type: variable-color
+    format: hex
+    default: '#8173CC'
+  - id: progress-color-4
+    title: Progress 80-99%
+    type: variable-color
+    format: hex
+    default: '#A8BD3F'
+  - id: progress-color-5
+    title: Progress 100%
+    type: variable-color
+    format: hex
+    default: '#412DB5'
+
+*/

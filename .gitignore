@@ -1,0 +1,17 @@
+# Albedo brand source material — proprietary, keep local.
+# The theme needs none of these at run time; theme.css carries only hex values.
+assets/Albedo_Logo_Web_Black.png
+assets/Albedo_Logo_Web_Chartreuse.png
+assets/Albedo_Logo_Web_Purple.png
+assets/Albedo_Logo_Web_SpaceGrey.png
+assets/Logo White.png
+assets/color pallette.png
+assets/Albedo-Color-Palette.md
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+Thumbs.db
+.DS_Store
